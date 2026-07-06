@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import AuthService from '../services/AuthService'
+import Navbar from "../components/Navbar";
 
 function Register(){
 
@@ -50,41 +51,71 @@ function Register(){
 
 
    return (
-        <div>
-            <h2>Register</h2>
+       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50 flex flex-col font-sans">
+    <Navbar />
+    
+   
+    <div className="flex-1 flex justify-center items-center px-4 py-12">
+        <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-100 p-8 sm:p-10 transition-all hover:shadow-2xl">
+            
+           
+            <div className="text-center mb-8">
+                <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+                    Create an Account
+                </h2>
+                <p className="text-sm text-slate-500 mt-2">
+                    Get started with your free account today.
+                </p>
+            </div>
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email:</label>
-                    <br />
+            <form onSubmit={handleSubmit} className="space-y-6">
+                
+                
+                <div className="flex flex-col space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                        Email Address
+                    </label>
                     <input
                         type="email"
-                        placeholder="Enter your email"
+                        placeholder="name@company.com"
                         value={mail}
                         onChange={(e) => setMail(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 bg-slate-50/50"
                         required
                     />
                 </div>
 
-                <br />
-
-                <div>
-                    <label>Password:</label>
-                    <br />
+                
+                <div className="flex flex-col space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                        Password
+                    </label>
                     <input
                         type="password"
-                        placeholder="Enter your password"
+                        placeholder="••••••••"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 bg-slate-50/50"
                         required
                     />
                 </div>
 
-                <br />
-
-                <button type="submit" className="bg-blue-500 text-white-400 p-4">Register</button>
+            
+                <button 
+                    type="submit" 
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md hover:shadow-lg shadow-indigo-200 hover:shadow-indigo-300 transition-all duration-200 transform active:scale-[0.98]"
+                >
+                    Register
+                </button>
             </form>
+
+            
+            <div className="mt-6 text-center text-xs text-slate-400">
+                Secure 256-bit SSL encrypted connection.
+            </div>
         </div>
+    </div>
+</div>
     );
 }
 
