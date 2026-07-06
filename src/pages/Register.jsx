@@ -1,8 +1,12 @@
-import { useState, useNavigate } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import AuthService from '../services/AuthService'
 
 function Register(){
 
     const[mail,setMail]=useState("");
+
     const[password,setPassword]=useState("");
     const[loading,setLoading]=useState(false);
     const[error,setError]=useState("");
@@ -14,6 +18,7 @@ function Register(){
 
         e.preventDefault()
 
+        console.log("form submitted")
         setLoading(true)
         setError("")
 
@@ -21,12 +26,19 @@ function Register(){
 
             const response=await AuthService.register(
                 {
-                    email:email,
-                    password:password
+                    email:mail,
+                    password:password,
+                    role:"user"
                 }
             );
 
-            navigate("")
+            //console.log(response.data);
+            //console.log(response.data.tokens.refresh)
+
+            localStorage.setItem("refreshToken", response.data.tokens.refresh);
+            localStorage.setItem("accessToken", response.data.tokens.access);
+
+            navigate("/home")
         }
         catch(err){
             setError(err.message)
@@ -48,8 +60,8 @@ function Register(){
                     <input
                         type="email"
                         placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={mail}
+                        onChange={(e) => setMail(e.target.value)}
                         required
                     />
                 </div>
@@ -70,7 +82,7 @@ function Register(){
 
                 <br />
 
-                <button type="submit">Register</button>
+                <button type="submit" className="bg-blue-500 text-white-400 p-4">Register</button>
             </form>
         </div>
     );
