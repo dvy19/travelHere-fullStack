@@ -2,6 +2,8 @@
 export const ENDPOINTS = {
     REGISTER:"api/accounts/register/",
     LOGIN:"api/accounts/login/",
-    CREATEPROFILE:"api/accounts/create-profile/"
+    CREATEPROFILE:"api/accounts/create-profile/",
+
+    GETCITY:"api/city/cities/"
     
 };
