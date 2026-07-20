@@ -5,6 +5,7 @@ export const ENDPOINTS = {
     CREATEPROFILE:"api/accounts/create-profile/",
 
     GETCITY:"api/city/cities/",
-    GETPLACES:"api/place/places/"
+    GETPLACES:"api/place/places/",
+    SINGLEPLACE:(id)=>`./api/place/places/${id}/`
     
 };

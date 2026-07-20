@@ -14,6 +14,22 @@ const PlaceService={
         });
 
         return response.data
+    },
+
+
+    getSinglePlace:async()=>{
+
+        const token=localStorage.get("accessToken");
+
+        const response=await api.get(ENDPOINTS.SINGLEPLACE , {
+
+            headers:{
+                Authorization:`Bearer ${token}`
+            },
+        })
+
+
+        return response.data
     }
 
 
