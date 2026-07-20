@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from 'react'
 
 import {useNavigate} from 'react-router-dom'
+import CityCard from '../components/CityCard'
 
 import CityService from '../services/CityService';
 
@@ -22,7 +23,9 @@ const Home = () => {
 
       const data=await CityService.getCities();
       console.log(data.data)
+      setCities(data.data)
     } 
+
     catch(err){
       setError(err);
       console.log(err)
@@ -62,7 +65,7 @@ const Home = () => {
     <div>
 
       <div className="cities-container">
-            <div className="cities-header flex fledx-row justify-between items-center m-4 mb-6">
+<div className="cities-header flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 m-4 mb-6">
                 <h1 className="text-3xl font-bold tracking-wide font-sans text-indigo-800">TravelHere</h1>
                 <button 
                 className="search-btn bg-blue-500 hover:bg-blue-700 hover:border  text-white hover:text-white font-bold py-2 px-4 rounded-lg transition duration-300 
@@ -104,10 +107,10 @@ const Home = () => {
                     px-6
                     py-8  "
             >
-                {currentCities.map((cities) => (
+                {currentCities.map((city) => (
                     <CityCard
                         key={city.id}
-                        hotel={cities}
+                        city={city}
                     />
                 ))}
             </div>
