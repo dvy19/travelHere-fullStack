@@ -52,6 +52,11 @@ const Home = () => {
         return <h2>{error}</h2>;
     }
 
+    const onLogout=()=>{
+        localStorage.clear()
+        navigate("/")
+    }
+
 
   return (
     <div>
@@ -64,6 +69,12 @@ const Home = () => {
                 hover:shadow-lg
                 ease-in-out cursor-pointer "
                 onClick={() => navigate("/search")}> Search </button>
+
+                <button 
+                className="logout-btn bg-white-500 hover:bg-blue-700 hover:border  text-red-500 hover:text-white font-bold py-2 px-4 rounded-lg transition duration-300 
+                hover:shadow-lg
+                ease-in-out cursor-pointer "
+                onClick={onLogout}> LogOut </button>
             </div>
       </div>
 

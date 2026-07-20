@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navigate=useNavigate()
+
+  const toLogin=()=>{
+    navigate('./login')
+  }
 
   return (
     <nav className="bg-white border-b border-slate-100 sticky top-0 z-50">
@@ -25,7 +32,7 @@ export default function Navbar() {
 
           {/* Desktop Call-to-Action Button */}
           <div className="hidden md:flex items-center">
-            <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-sm transition-all">
+            <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-sm transition-all" onClick={toLogin}>
               Login
             </button>
           </div>
