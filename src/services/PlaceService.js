@@ -30,6 +30,20 @@ const PlaceService={
 
 
         return response.data
+    },
+
+    addReview:async=(req)=>{
+
+        const token=localStorage.get('accessToken')
+
+        const res=await api.post(ENDPOINTS.ADDREVIEW,req , {
+            header:{
+                Authorization:`Bearer ${token}`
+            }
+        }),
+
+        return res
+
     }
 
 

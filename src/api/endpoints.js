@@ -6,6 +6,8 @@ export const ENDPOINTS = {
 
     GETCITY:"api/city/cities/",
     GETPLACES:"api/place/places/",
-    SINGLEPLACE:(id)=>`./api/place/places/${id}/`
+    SINGLEPLACE:(id)=>`./api/place/places/${id}/`,
+
+    ADDREVIEW:"api/places/reviews/",
     
 };

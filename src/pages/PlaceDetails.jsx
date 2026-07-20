@@ -8,6 +8,35 @@ function PlaceDetails(){
 
     const navigate=useNavigate();
 
+    const[review, setReview]=useState("");
+    const[rating,setRating]=useState(0);
+    const[error, setError]=useState(""),
+
+    const add_review=async(e)=>{
+
+        e.preventDefault()
+
+        setLoading(true)
+
+        try{
+
+            const data=await PlaceService.addReview({
+                place:placeDetail.id,
+                content:review
+            })
+            console.log(data)
+
+            
+        }catch(err){
+            setError(err)
+        }
+        finally{
+            setLoading(false)
+        }
+    }
+
+
+
     const {id}=useParams()
 
 
@@ -106,6 +135,27 @@ function PlaceDetails(){
             </div>
 
         </div>
+    </div>
+
+    <div className="add-review bg-red-100 w-full h-80">
+
+         <input
+                        placeholder="add your review"
+                        value={review}
+                        onChange={(e) => setReview(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 bg-slate-50/50"
+                        required
+        />
+
+        <button 
+                    type="submit" 
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-xl shadow-md hover:shadow-lg shadow-indigo-200 hover:shadow-indigo-300 transition-all duration-200 transform active:scale-[0.98]" onClick={add_review}
+                >
+                    Register
+                </button>
+
+
+
     </div>
 </div>
         )
