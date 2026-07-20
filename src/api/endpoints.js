@@ -4,6 +4,7 @@ export const ENDPOINTS = {
     LOGIN:"api/accounts/login/",
     CREATEPROFILE:"api/accounts/create-profile/",
 
-    GETCITY:"api/city/cities/"
+    GETCITY:"api/city/cities/",
+    GETPLACES:"api/place/places/"
     
 };
