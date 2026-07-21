@@ -17,30 +17,25 @@ const PlaceService={
     },
 
 
-    getSinglePlace:async()=>{
+    getSinglePlace: async (id) => {
+    const token = localStorage.getItem("accessToken");
 
-        const token=localStorage.get("accessToken");
+    const response = await api.get(
+        `${ENDPOINTS.SINGLEPLACE(id)}`
+    );
 
-        const response=await api.get(ENDPOINTS.SINGLEPLACE , {
+    return response.data;
+},
 
-            headers:{
-                Authorization:`Bearer ${token}`
-            },
-        })
+    addReview:async(req)=>{
 
-
-        return response.data
-    },
-
-    addReview:async=(req)=>{
-
-        const token=localStorage.get('accessToken')
+        const token=localStorage.getItem("accessToken");
 
         const res=await api.post(ENDPOINTS.ADDREVIEW,req , {
-            header:{
+            headers:{
                 Authorization:`Bearer ${token}`
             }
-        }),
+        });
 
         return res
 

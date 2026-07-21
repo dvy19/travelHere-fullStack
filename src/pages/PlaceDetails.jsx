@@ -4,31 +4,57 @@ import PlaceService from "../services/PlaceService";
 
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+
 function PlaceDetails(){
 
     const navigate=useNavigate();
 
     const[review, setReview]=useState("");
     const[rating,setRating]=useState(0);
-    const[error, setError]=useState(""),
+
+    const {id}=useParams()
+
+
+    const[placeDetail, setPlaceDetail]=useState({});
+    const[loading,setLoading]=useState(false);
+    const[error, setError]=useState("");
 
     const add_review=async(e)=>{
 
         e.preventDefault()
 
+
         setLoading(true)
+
+         console.log({
+
+                place:placeDetail.id,
+                content:review,
+                rating:rating
+
+            })
 
         try{
 
             const data=await PlaceService.addReview({
                 place:placeDetail.id,
-                content:review
+                content:review,
+                rating:rating
             })
             console.log(data)
+
+            console.log({
+
+                place:placeDetail.id,
+                content:review,
+                rating:rating
+
+            })
 
             
         }catch(err){
             setError(err)
+            console.log(err)
         }
         finally{
             setLoading(false)
@@ -37,24 +63,24 @@ function PlaceDetails(){
 
 
 
-    const {id}=useParams()
-
-
-    const[placeDetail, setPlaceDetail]=useState("");
-    const[loading,setLoading]=useState(false);
-    const[error, setError]=useState("");
+    
 
     const get_place_details=async()=>{
 
         try{
 
             setLoading(true)
-            const data=await PlaceService.get_place_details(id)
-            console.log(data.data)
+            const data=await PlaceService.getSinglePlace(id)
             setPlaceDetail(data.data)
+
+            console.log(data)
+
+            
 
         }
         catch(err){
+            console.log(err);
+        console.log(err.response);
             setError(err)
         }
         finally{
@@ -88,7 +114,7 @@ function PlaceDetails(){
            
             <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
                 <span className="text-amber-500 font-bold">★</span>
-                <span className="text-sm font-semibold text-slate-800">{placeDetail.id}</span>
+                
             </div>
         </div>
 
@@ -97,7 +123,6 @@ function PlaceDetails(){
             <div>
                
                 <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-                    <span>{placeDetail.id}</span>
                     <span>•</span>
                     <span className="flex items-center gap-1 text-indigo-600">
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -143,6 +168,15 @@ function PlaceDetails(){
                         placeholder="add your review"
                         value={review}
                         onChange={(e) => setReview(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 bg-slate-50/50"
+                        required
+        />
+
+        <input
+                        placeholder="add rating out of 10"
+                        value={rating}
+                        type="number"
+                        onChange={(e) => setRating(e.target.value)}
                         className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 bg-slate-50/50"
                         required
         />
