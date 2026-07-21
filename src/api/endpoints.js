@@ -9,6 +9,7 @@ export const ENDPOINTS = {
     SINGLEPLACE:(id)=>`api/place/places/${id}/`,
 
     ALLREVIEW:"api/place/reviews/",
+    SAVEDPLACES:"api/place/saved-places/",
 
 
     

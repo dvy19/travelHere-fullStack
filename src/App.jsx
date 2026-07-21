@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Login from './pages/Login'
 import PlaceDetails from './pages/PlaceDetails'
+import UserProfile from './pages/UserProfile';
 const App = () => {
   return (
     <div>
@@ -15,6 +16,8 @@ const App = () => {
                 <Route path="/home" element={<Home />} />
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/singlePlaceDetail/:id' element={<PlaceDetails/>}/>
+                <Route path='/userProfile' element={<UserProfile/>}/>
+
 
 
             </Routes>

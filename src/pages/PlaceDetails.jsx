@@ -20,6 +20,8 @@ function PlaceDetails(){
     const[loading,setLoading]=useState(false);
     const[error, setError]=useState("");
 
+    const[savePlace,setSavePlace]=useState({});
+
     const add_review=async(e)=>{
 
         e.preventDefault()
@@ -42,6 +44,7 @@ function PlaceDetails(){
                 content:review,
                 rating:rating
             })
+
             console.log(data)
 
             console.log({
@@ -87,6 +90,29 @@ function PlaceDetails(){
         finally{
             setLoading(false)
         }
+    }
+
+
+    const save_place=async()=>{
+
+        setLoading(true)
+
+        try{
+
+            const data=await PlaceService.savePlace({
+                place:placeDetail.id
+            })
+            setSavePlace(data.data)
+            console.log(data.data)
+            
+        }catch(err){
+            console.log(err)
+            setError(err)
+        }
+        finally{
+            setLoading(false)
+        }
+
     }
 
 
@@ -155,8 +181,8 @@ function PlaceDetails(){
                         <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span> Available
                     </span>
                 </div>
-                <button className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm rounded-xl transition-colors duration-200 shadow-sm">
-                    Plan Now
+                <button className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm rounded-xl transition-colors duration-200 shadow-sm" onClick={save_place}>
+                    Save Now
                 </button>
             </div>
 

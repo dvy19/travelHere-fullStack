@@ -44,6 +44,17 @@ const PlaceService={
 
         const data=await api.get(ENDPOINTS.ALLREVIEW);
         return data.data
+    },
+
+    savePlace:async(req)=>{
+        const res=await api.post(ENDPOINTS.SAVEDPLACES,req)
+        return data.data
+    },
+
+    getSavePlace:async()=>{
+        const res=await api.get(ENDPOINTS.SAVEDPLACES)
+        return data.data
+
     }
 
 
