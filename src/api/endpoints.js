@@ -8,6 +8,8 @@ export const ENDPOINTS = {
     GETPLACES:"api/place/places/",
     SINGLEPLACE:(id)=>`api/place/places/${id}/`,
 
-    ADDREVIEW:"api/place/reviews/",
+    ALLREVIEW:"api/place/reviews/",
+
+
     
 };

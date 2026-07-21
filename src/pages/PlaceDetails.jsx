@@ -4,6 +4,7 @@ import PlaceService from "../services/PlaceService";
 
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import GetAllReviews from "../components/GetAllReviews";
 
 function PlaceDetails(){
 
@@ -155,12 +156,14 @@ function PlaceDetails(){
                     </span>
                 </div>
                 <button className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm rounded-xl transition-colors duration-200 shadow-sm">
-                    Book Now
+                    Plan Now
                 </button>
             </div>
 
         </div>
     </div>
+
+    <GetAllReviews></GetAllReviews>
 
     <div className="add-review bg-red-100 w-full h-80">
 

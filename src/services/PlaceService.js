@@ -31,14 +31,19 @@ const PlaceService={
 
         const token=localStorage.getItem("accessToken");
 
-        const res=await api.post(ENDPOINTS.ADDREVIEW,req , {
+        const res=await api.post(ENDPOINTS.ALLREVIEW,req , {
             headers:{
                 Authorization:`Bearer ${token}`
             }
         });
 
         return res
+    },
 
+    getAllReviews:async()=>{
+
+        const data=await api.get(ENDPOINTS.ALLREVIEW);
+        return data.data
     }
 
 
