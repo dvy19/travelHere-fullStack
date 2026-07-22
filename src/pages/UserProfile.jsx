@@ -21,6 +21,9 @@ const UserProfile = () => {
             setError(err)
             console.log(err)
         }
+        finally{
+            setLoading(false)
+        }
     }
 
 
@@ -32,6 +35,24 @@ const UserProfile = () => {
             
   return (
     <div>
+
+     <div className="saved-places-container">
+        {loading && <p>Loading...</p>}
+
+        {error && <p>Something went wrong!</p>}
+
+        {!loading && savedPlaces.length === 0 && (
+            <p>No saved places found.</p>
+        )}
+
+        {savedPlaces.map((place) => (
+            <PlaceCard
+                key={place.id}
+                place={place}
+            />
+        ))}
+    </div>
+
       
     </div>
   )

@@ -5,6 +5,7 @@ import PlaceService from "../services/PlaceService";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import GetAllReviews from "../components/GetAllReviews";
+import CityMap from "./CityMap";
 
 function PlaceDetails(){
 
@@ -145,6 +146,11 @@ function PlaceDetails(){
             </div>
         </div>
 
+        <section className="space-y-2">
+        <h2 className="text-xl font-semibold">Location Map</h2>
+        
+      </section>
+
         
         <div className="w-full md:w-3/5 p-6 md:p-8 flex flex-col justify-between">
             <div>
@@ -190,6 +196,12 @@ function PlaceDetails(){
     </div>
 
     <GetAllReviews></GetAllReviews>
+
+    <CityMap
+          latitude={placeDetail.latitude}
+          longitude={placeDetail.longitude}
+          cityName={placeDetail.name}
+        />
 
     <div className="add-review bg-red-100 w-full h-80">
 

@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login'
 import PlaceDetails from './pages/PlaceDetails'
 import UserProfile from './pages/UserProfile';
+import 'leaflet/dist/leaflet.css';
 const App = () => {
   return (
     <div>
