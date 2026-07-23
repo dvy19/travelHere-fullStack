@@ -55,6 +55,12 @@ const PlaceService={
         const res=await api.get(ENDPOINTS.SAVEDPLACES)
         return data.data
 
+    },
+
+
+    getFeelingsPlaces:async(req)=>{
+        const res=await api.post(ENDPOINTS.FEELINGSPLACES, req)
+        return res
     }
 
 

@@ -6,6 +6,8 @@ import Login from './pages/Login'
 import PlaceDetails from './pages/PlaceDetails'
 import UserProfile from './pages/UserProfile';
 import 'leaflet/dist/leaflet.css';
+
+import FeelingsPlaces from './pages/FeelingsPlaces'
 const App = () => {
   return (
     <div>
@@ -18,6 +20,9 @@ const App = () => {
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/singlePlaceDetail/:id' element={<PlaceDetails/>}/>
                 <Route path='/userProfile' element={<UserProfile/>}/>
+
+                <Route path='/feelingsPlaces' element={<FeelingsPlaces/>}/>
+
 
 
 

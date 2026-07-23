@@ -11,6 +11,8 @@ export const ENDPOINTS = {
     ALLREVIEW:"api/place/reviews/",
     SAVEDPLACES:"api/place/saved-places/",
 
+    FEELINGSPLACES:"api/place/recommend/"
+
 
     
 };

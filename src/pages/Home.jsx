@@ -6,6 +6,7 @@ import PlaceCard from '../components/PlaceCard'
 
 import CityService from '../services/CityService';
 import PlaceService from '../services/PlaceService';
+import FeelingRecommCard from '../components/FeelingRecommCard';
 
 const Home = () => {
 
@@ -141,6 +142,8 @@ const Home = () => {
                     Filter
                 </button>
             </div>
+
+            <FeelingRecommCard></FeelingRecommCard>
 
             <div className="home-grid
                     grid grid-cols-3 grid-rows-1
