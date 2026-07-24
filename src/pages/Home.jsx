@@ -126,22 +126,6 @@ const Home = () => {
       </div>
 
 
-      <div className="search-container flex flex-row justify-center mb-6 py-4 px-6 bg-gray-100 rounded-lg shadow-md align-items-center gap-4">
-                <input
-                    className="search-input border border-gray-300 rounded-lg py-2 px-4 mb-4 w-full max-w-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    type="text"
-                    placeholder="Enter location"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                />
-
-                <button
-                    onClick={console.log("clicked")}
-                    className="search-btn bg-blue-500 hover:bg-blue-700 hover:border  text-white hover:text-white font-bold py-2 px-4 rounded-lg transition duration-300 h-auto"
-                >
-                    Filter
-                </button>
-            </div>
 
             <FeelingRecommCard></FeelingRecommCard>
 

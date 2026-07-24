@@ -40,6 +40,10 @@ function CityCard({ city }) {
     
     <button
         className="w-full mt-4 py-2.5 bg-indigo-200 hover:bg-indigo-600 group-hover:bg-indigo-600 text-slate-700 group-hover:text-white font-medium text-sm rounded-xl transition-all duration-200 flex items-center justify-center gap-1"
+
+        onClick={()=>{
+            navigate(`/cityDetails/${city.id}`)
+        }}
         
     >
         <span>View </span>

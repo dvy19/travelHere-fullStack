@@ -14,8 +14,14 @@ const CityService={
         });
 
         return response.data
-    }
+    },
 
+    getSingleCity:async(id)=>{
+
+        const res=await api.get(`${ENDPOINTS.SINGLECITY(id)}`)
+        return res.data
+
+    }
 
 
 }
